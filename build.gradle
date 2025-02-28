@@ -1,0 +1,36 @@
+plugins {
+    id 'java'
+}
+
+group = 'org.example'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+//    implementation group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '4.29.0'
+    implementation 'com.codeborne:selenide:7.7.3'
+    implementation 'com.codeborne:selenide-video-recorder:7.7.3'
+
+    implementation group: 'io.cucumber', name: 'cucumber-java', version: '7.21.1'
+
+    implementation 'org.junit.jupiter:junit-jupiter:5.12.0'
+    implementation 'io.cucumber:cucumber-junit-platform-engine:7.21.1'
+    implementation 'org.junit.platform:junit-platform-suite:1.12.0'
+
+    implementation 'org.slf4j:slf4j-nop:2.0.17'
+}
+
+// Шаг для Windows, так как русские шаги в Cucumber могут быть не найдены
+compileJava.options.encoding = 'UTF-8'
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+
+test {
+    useJUnitPlatform()
+    systemProperty 'cucumber.filter.tags', System.getProperty('cucumber.filter.tags')
+}
+
