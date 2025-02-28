@@ -8,7 +8,6 @@ import static com.codeborne.selenide.Selectors.byXpath;
 import static com.codeborne.selenide.Selenide.*;
 
 public class HomePage {
-
     public static String baseUrl = PropertiesLoader.loadProperty("url");
 
     public void openHomePage() {

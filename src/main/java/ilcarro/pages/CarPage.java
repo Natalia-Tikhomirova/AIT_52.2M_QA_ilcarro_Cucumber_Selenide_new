@@ -136,7 +136,6 @@ public class CarPage {
 
                 $("#photos").uploadFile(photoFile);
 
-
                 // Прокручиваем к кнопке Submit и кликаем
                 clickOnSubmitButtonWithScroll();
 

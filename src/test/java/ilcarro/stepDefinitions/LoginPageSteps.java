@@ -43,5 +43,4 @@ public class LoginPageSteps {
         new LoginPage().enterCredentials(table);
     }
 
-
 }

@@ -8,6 +8,7 @@ Feature: Adding a car
     And The user presses the Yalla button
     Then The user checks the display of the message about the successful login
 
+
   @AddCar
   Scenario: Successful adding a car
     And The user presses the Let the Car Work button

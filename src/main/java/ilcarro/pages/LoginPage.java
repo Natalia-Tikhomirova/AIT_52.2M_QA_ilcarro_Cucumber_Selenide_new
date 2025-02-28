@@ -35,7 +35,6 @@ public class LoginPage {
 //        $("#password").setValue(password);
 //    }
 
-
     public void enterCredentials(DataTable table) {
         List<Map<String, String>> dataTable = table.asMaps();
         String email = dataTable.get(0).get("email");

@@ -7,7 +7,6 @@ import static com.codeborne.selenide.Selenide.open;
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 
 public class BasePage {
-
     public void launchBrowser() {
         open("about:blank");
         //getWebDriver().manage().window().setPosition(new Point(2200, 200));

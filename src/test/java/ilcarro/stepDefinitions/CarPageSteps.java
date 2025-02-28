@@ -12,7 +12,6 @@ public class CarPageSteps {
 //    public void userEnterCarData(DataTable table){
 //        new CarPage().enterCarData(table);
 //    }
-
     @And("The user presses the Submit button")
     public void userClickOnSubmitButton() {
         new CarPage().clickOnSubmitButton();

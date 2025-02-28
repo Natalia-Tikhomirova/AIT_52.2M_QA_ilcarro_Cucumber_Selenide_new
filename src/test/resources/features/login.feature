@@ -39,6 +39,7 @@ Feature: LOGIN
     And The user presses the Yalla button
     Then The user checks the display of the message about the unsuccessful login
     And The user closes the browser
+
     Examples:
       | email             | password   |
       | test_qa@gmail.com | Password1  |
