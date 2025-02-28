@@ -4,19 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="03e77802-e6b0-4010-9ec0-10daf4558332" name="Changes" comment="Upd">
-      <change afterPath="$PROJECT_DIR$/.idea/csv-editor.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ilcarro/core/BasePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ilcarro/core/BasePage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ilcarro/pages/CarPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ilcarro/pages/CarPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ilcarro/pages/HomePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ilcarro/pages/HomePage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ilcarro/pages/LoginPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ilcarro/pages/LoginPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/ilcarro/stepDefinitions/CarPageSteps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ilcarro/stepDefinitions/CarPageSteps.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/ilcarro/stepDefinitions/LoginPageSteps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ilcarro/stepDefinitions/LoginPageSteps.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/features/add_car.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/add_car.feature" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/features/add_car_csv.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/add_car_csv.feature" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/features/login.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/login.feature" afterDir="false" />
-    </list>
+    <list default="true" id="03e77802-e6b0-4010-9ec0-10daf4558332" name="Changes" comment="Upd" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -270,7 +258,15 @@
       <option name="project" value="LOCAL" />
       <updated>1740782387165</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Upd">
+      <option name="closed" value="true" />
+      <created>1740784265039</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1740784265039</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TerminalProjectNonSharedOptionsProvider">
