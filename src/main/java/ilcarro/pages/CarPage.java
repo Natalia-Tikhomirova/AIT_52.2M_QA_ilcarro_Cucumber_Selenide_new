@@ -1,10 +1,14 @@
 package ilcarro.pages;
 
 import com.codeborne.selenide.CollectionCondition;
+import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.Selenide;
+import com.codeborne.selenide.SelenideElement;
 import ilcarro.utils.PropertiesLoader;
 import io.cucumber.datatable.DataTable;
 
 import java.io.File;
+import java.time.Duration;
 import java.util.List;
 import java.util.Map;
 
@@ -54,7 +58,7 @@ public class CarPage {
         String price = dataTable.get(0).get("price");
         String about = dataTable.get(0).get("about");
         String photo = dataTable.get(0).get("photo");
-        enterCarDataToForm(location, manufacture,model,year,fuel,seats,classCar,price,about,photo);
+        enterCarDataToForm(location, manufacture, model, year, fuel, seats, classCar, price, about, photo);
     }
 
     private void enterCarDataToForm(
@@ -94,5 +98,56 @@ public class CarPage {
 
     public void verifySuccessMessage(String textToCheck) {
         $(".message").shouldHave(text(textToCheck));
+    }
+
+    public void inputMultipleAutoDetailsFromCsv(String filePath) {
+        List<String[]> carData = PropertiesLoader.loadCsv(filePath);
+
+        if (carData.size() > 1) { // Пропускаем заголовок
+            for (int i = 1; i < carData.size(); i++) {
+                String[] car = carData.get(i);
+                String brand = car[0];
+                String model = car[1];
+
+                $("#pickUpPlace").setValue(PropertiesLoader.loadProperty("valid.location"));
+                $(".pac-item").shouldBe(Condition.visible).click();
+                $("#make").setValue(brand);
+                $("#model").setValue(model);
+                $("#year").setValue(car[2]);
+                $("#fuel").selectOption(car[3]);
+                $("#seats").setValue(car[4]);
+                $("#class").setValue(car[5]);
+                $("#serialNumber").setValue(String.valueOf(System.currentTimeMillis()));
+                $("#price").setValue(car[6]);
+                $("#about").setValue(car[7]);
+                $("#photos").uploadFile(new File(car[8]));
+
+                // Прокручиваем к кнопке Submit и кликаем
+                clickOnSubmitButtonWithScroll();
+
+                // Ждем сообщение об успешном добавлении машины
+                waitForSuccessMessage(brand + " " + model + " added successful");
+
+                // Обновляем страницу перед добавлением следующей машины
+                Selenide.refresh();
+
+                // Ждем загрузки страницы и кликаем "Let the Car Work"
+                $x("(//a[@class='navigation-link'])[2]").shouldBe(Condition.visible, Duration.ofSeconds(10)).click();
+            }
+        }
+    }
+
+    public void waitForSuccessMessage(String expectedMessage) {
+        $(".message").shouldHave(Condition.text(expectedMessage), Duration.ofSeconds(10));
+    }
+
+    public void clickOnSubmitButtonWithScroll() {
+        SelenideElement submitButton = $x("//button[text()='Submit']");
+        submitButton.scrollIntoView(true);
+
+        // Ждем, пока кнопка станет активной
+        submitButton.shouldBe(Condition.enabled, Duration.ofSeconds(10));
+
+        submitButton.click();
     }
 }

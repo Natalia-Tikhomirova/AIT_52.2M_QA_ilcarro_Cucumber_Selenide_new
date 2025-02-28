@@ -18,3 +18,4 @@ Feature: Adding a car
     And The user presses the Submit button
     Then The user checks the message "Toyota Corolla added successful"
     And The user closes the browser
+

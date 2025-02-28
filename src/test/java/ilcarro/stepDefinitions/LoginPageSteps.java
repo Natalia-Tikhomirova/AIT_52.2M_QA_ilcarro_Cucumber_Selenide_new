@@ -1,9 +1,11 @@
 package ilcarro.stepDefinitions;
 
+import ilcarro.pages.CarPage;
 import ilcarro.pages.LoginPage;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 
 public class LoginPageSteps {
     @And("The user enters valid data")
@@ -40,4 +42,6 @@ public class LoginPageSteps {
     public void userEnterValidCredentialsTable(DataTable table) {
         new LoginPage().enterCredentials(table);
     }
+
+
 }

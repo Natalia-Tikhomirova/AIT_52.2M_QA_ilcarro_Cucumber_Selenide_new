@@ -26,4 +26,10 @@ public class CarPageSteps {
     public void userEnterCarDataIsProperties() {
         new CarPage().inputAutoDetailsFromProperties();
     }
+
+    @When("The user enters multiple cars data from CSV file {string}")
+    public void enterMultipleCarDataFromCsv(String filePath) {
+        new CarPage().inputMultipleAutoDetailsFromCsv(filePath);
+    }
 }
+

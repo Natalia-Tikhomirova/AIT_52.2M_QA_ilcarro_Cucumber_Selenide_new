@@ -19,7 +19,7 @@ dependencies {
     implementation 'org.junit.jupiter:junit-jupiter:5.12.0'
     implementation 'io.cucumber:cucumber-junit-platform-engine:7.21.1'
     implementation 'org.junit.platform:junit-platform-suite:1.12.0'
-
+    implementation 'com.opencsv:opencsv:5.9'
     implementation 'org.slf4j:slf4j-nop:2.0.17'
 }
 
