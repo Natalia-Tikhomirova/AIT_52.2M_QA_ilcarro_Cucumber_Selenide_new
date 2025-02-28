@@ -106,12 +106,16 @@ public class CarPage {
         if (carData.size() > 1) { // Пропускаем заголовок
             for (int i = 1; i < carData.size(); i++) {
                 String[] car = carData.get(i);
-                String brand = car[0];
+                String manufacture = car[0];
                 String model = car[1];
 
-                $("#pickUpPlace").setValue(PropertiesLoader.loadProperty("valid.location"));
-                $(".pac-item").shouldBe(Condition.visible).click();
-                $("#make").setValue(brand);
+                System.out.println("Добавление автомобиля: " + manufacture + " " + model);
+
+                $("#pickUpPlace").shouldBe(Condition.visible, Duration.ofSeconds(10))
+                        .setValue(PropertiesLoader.loadProperty("valid.location"));
+                $(".pac-item").shouldBe(Condition.visible, Duration.ofSeconds(5)).click();
+
+                $("#make").setValue(manufacture);
                 $("#model").setValue(model);
                 $("#year").setValue(car[2]);
                 $("#fuel").selectOption(car[3]);
@@ -120,28 +124,38 @@ public class CarPage {
                 $("#serialNumber").setValue(String.valueOf(System.currentTimeMillis()));
                 $("#price").setValue(car[6]);
                 $("#about").setValue(car[7]);
-                $("#photos").uploadFile(new File(car[8]));
+
+                $("#about").scrollIntoView(true);
+
+                String photoPath = PropertiesLoader.loadProperty("valid.photos");
+                File photoFile = new File(photoPath);
+
+                if (!photoFile.exists()) {
+                    throw new RuntimeException("Фото не найдено: " + photoFile.getAbsolutePath());
+                }
+
+                $("#photos").uploadFile(photoFile);
+
 
                 // Прокручиваем к кнопке Submit и кликаем
                 clickOnSubmitButtonWithScroll();
 
                 // Ждем сообщение об успешном добавлении машины
-                waitForSuccessMessage(brand + " " + model + " added successful");
+                waitForSuccessMessage(manufacture + " " + model + " added successful");
 
                 // Обновляем страницу перед добавлением следующей машины
-                Selenide.refresh();
+                if (i < carData.size() - 1) { // Не обновлять после последней машины
+                    System.out.println("Обновляем страницу...");
+                    Selenide.refresh();
 
-                // Ждем загрузки страницы и кликаем "Let the Car Work"
-                $x("(//a[@class='navigation-link'])[2]").shouldBe(Condition.visible, Duration.ofSeconds(10)).click();
+                    // Ждем загрузки страницы и кликаем "Let the Car Work"
+                    $x("(//a[@class='navigation-link'])[2]").shouldBe(Condition.visible, Duration.ofSeconds(10)).click();
+                }
             }
         }
     }
 
-    public void waitForSuccessMessage(String expectedMessage) {
-        $(".message").shouldHave(Condition.text(expectedMessage), Duration.ofSeconds(10));
-    }
-
-    public void clickOnSubmitButtonWithScroll() {
+    private void clickOnSubmitButtonWithScroll() {
         SelenideElement submitButton = $x("//button[text()='Submit']");
         submitButton.scrollIntoView(true);
 
@@ -150,4 +164,9 @@ public class CarPage {
 
         submitButton.click();
     }
+
+    public void waitForSuccessMessage (String expectedMessage){
+        $(".message").shouldHave(Condition.text(expectedMessage), Duration.ofSeconds(10));
+    }
 }
+

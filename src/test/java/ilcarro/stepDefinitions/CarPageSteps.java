@@ -5,6 +5,8 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
+import static ilcarro.pages.CarPage.photos;
+
 public class CarPageSteps {
 //    @When("The user enters the car data")
 //    public void userEnterCarData(DataTable table){
@@ -28,7 +30,7 @@ public class CarPageSteps {
     }
 
     @When("The user enters multiple cars data from CSV file {string}")
-    public void enterMultipleCarDataFromCsv(String filePath) {
+    public void theUserEntersMultipleCarsDataFromCSVFile(String filePath) {
         new CarPage().inputMultipleAutoDetailsFromCsv(filePath);
     }
 }
