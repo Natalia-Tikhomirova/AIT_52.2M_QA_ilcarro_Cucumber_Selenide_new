@@ -23,7 +23,7 @@ public class PropertiesLoader {
         try (CSVReader reader = new CSVReaderBuilder(new FileReader(filePath)).build()) {
             return reader.readAll();
         } catch (IOException | CsvException e) {
-            throw new RuntimeException("Ошибка загрузки CSV-файла: " + filePath, e);
+            throw new RuntimeException("CSV file download error: " + filePath, e);
         }
     }
 }

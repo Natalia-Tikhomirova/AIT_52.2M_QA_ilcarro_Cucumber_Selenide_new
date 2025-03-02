@@ -121,10 +121,10 @@ public class CarPage {
                 String classCar = car[5];
                 String price = car[6];
                 String about = car[7];
-                // Получаем имя файла фотографии (например, "Toyota.png")
+                // Получаем имя файла фотографии
                 String photoFileName = car[8];
 
-                System.out.println("Добавление автомобиля: " + manufacture + " " + model);
+                System.out.println("Adding a car: " + manufacture + " " + model + " added successful.");
 
                 $("#pickUpPlace").shouldBe(Condition.visible, Duration.ofSeconds(10))
                         .setValue(PropertiesLoader.loadProperty("valid.location"));
@@ -142,23 +142,22 @@ public class CarPage {
 
                 $("#about").scrollIntoView(true);
 
-                // Формируем полный путь к фотографии, используя свойство photos.folder
+                // Полный путь к фотографии
                 String fullPhotoPath = imagesBasePath + photoFileName;
                 File photoFile = new File(fullPhotoPath);
                 if (!photoFile.exists()) {
-                    throw new RuntimeException("Фото не найдено: " + photoFile.getAbsolutePath());
+                    throw new RuntimeException("The photo was not found: " + photoFile.getAbsolutePath());
                 }
 
                 $("#photos").uploadFile(photoFile);
 
                 clickOnSubmitButtonWithScroll();
 
-                // Ждем сообщение об успешном добавлении автомобиля
                 waitForSuccessMessage(manufacture + " " + model + " added successful");
 
-                // Обновляем страницу перед добавлением следующей машины (если это не последняя строка CSV)
+                // Обновление страницы перед добавлением следующей машины (если это не последняя строка CSV)
                 if (i < carData.size() - 1) {
-                    System.out.println("Обновляем страницу...");
+                    System.out.println("Update the page...");
                     Selenide.refresh();
                     $x("(//a[@class='navigation-link'])[2]").shouldBe(Condition.visible, Duration.ofSeconds(10)).click();
                 }
@@ -170,7 +169,7 @@ public class CarPage {
         SelenideElement submitButton = $x("//button[text()='Submit']");
         submitButton.scrollIntoView(true);
 
-        // Ждем, пока кнопка станет активной
+        // Ожидание активности кнопки
         submitButton.shouldBe(Condition.enabled, Duration.ofSeconds(10));
 
         submitButton.click();

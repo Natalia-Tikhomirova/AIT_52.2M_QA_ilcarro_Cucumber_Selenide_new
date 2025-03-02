@@ -6,10 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="03e77802-e6b0-4010-9ec0-10daf4558332" name="Changes" comment="Upd">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ilcarro/core/BasePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ilcarro/core/BasePage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ilcarro/pages/CarPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ilcarro/pages/CarPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/ilcarro/stepDefinitions/CarPageSteps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ilcarro/stepDefinitions/CarPageSteps.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/cars.csv" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/cars.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/selenide.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/selenide.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ilcarro/utils/PropertiesLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ilcarro/utils/PropertiesLoader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/ilcarro/stepDefinitions/Hooks.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ilcarro/stepDefinitions/Hooks.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -272,7 +272,15 @@
       <option name="project" value="LOCAL" />
       <updated>1740784265039</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Upd">
+      <option name="closed" value="true" />
+      <created>1740922157894</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1740922157894</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TerminalProjectNonSharedOptionsProvider">

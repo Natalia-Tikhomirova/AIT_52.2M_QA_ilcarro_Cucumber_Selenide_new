@@ -16,7 +16,7 @@ public class Hooks {
 
     @Before
     public void beforeScenario(Scenario scenario) {
-        scenario.log("🎥 Начинаем запись видео: " + scenario.getName());
+        scenario.log("🎥 Let's start recording video: " + scenario.getName());
         videoRecorder.start();
     }
 
@@ -24,6 +24,6 @@ public class Hooks {
     public void afterScenario(Scenario scenario) {
         String videoPath = String.valueOf(videoRecorder.videoUrl());
         videoRecorder.finish();
-        scenario.log("🎥 Видео теста: " + videoPath);
+        scenario.log("🎥 The video of the test has been saved: " + videoPath);
     }
 }
