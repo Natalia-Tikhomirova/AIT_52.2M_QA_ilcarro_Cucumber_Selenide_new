@@ -4,7 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="03e77802-e6b0-4010-9ec0-10daf4558332" name="Changes" comment="Upd" />
+    <list default="true" id="03e77802-e6b0-4010-9ec0-10daf4558332" name="Changes" comment="Upd">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ilcarro/pages/CarPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ilcarro/pages/CarPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/ilcarro/stepDefinitions/CarPageSteps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ilcarro/stepDefinitions/CarPageSteps.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/cars.csv" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/cars.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/selenide.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/selenide.properties" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -51,12 +57,12 @@
     &quot;assignee&quot;: &quot;Natalia-Tikhomirova&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/Natalia-Tikhomirova/Selenide_new.git&quot;,
-    &quot;accountId&quot;: &quot;04bec205-8deb-49ff-83c4-a0d29b3b1504&quot;
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/Natalia-Tikhomirova/5_ilcarro_Cucumber_Selenide_new.git",
+    "accountId": "04bec205-8deb-49ff-83c4-a0d29b3b1504"
   }
-}</component>
+}]]></component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 4
 }</component>
@@ -112,7 +118,7 @@
       <recent name="C:\AIT_TR_QA\5_ilcarro_Cucumber_Selenide\src\test\resources\features" />
     </key>
   </component>
-  <component name="RunManager" selected="Cucumber Java.Scenario: Successful adding multiple cars from CSV">
+  <component name="RunManager" selected="Cucumber Java.Feature: add_car_csv">
     <configuration name="Feature: add_car" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
       <option name="CUCUMBER_CORE_VERSION" value="5" />
       <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features/add_car.feature" />
@@ -224,8 +230,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Cucumber Java.Scenario: Successful adding multiple cars from CSV" />
         <item itemvalue="Cucumber Java.Feature: add_car_csv" />
+        <item itemvalue="Cucumber Java.Scenario: Successful adding multiple cars from CSV" />
         <item itemvalue="Cucumber Java.Scenario: Successful adding a car" />
         <item itemvalue="Cucumber Java.Feature: add_car" />
         <item itemvalue="Cucumber Java.Feature: login" />

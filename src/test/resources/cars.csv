@@ -1,4 +1,4 @@
-manufacture,model,year,fuel,seats,classCar,price,about
-Toyota,Corolla,2018,Diesel,4,Sedan,150,The best car
-BMW,320i,2020,Petrol,5,Sport,250,Fast and stylish
-Audi,A4,2021,Hybrid,5,Premium,280,Luxury sedan
+manufacture,model,year,fuel,seats,classCar,price,about,photo
+Toyota,Corolla,2018,Diesel,4,Sedan,150,The best car,Toyota.png
+BMW,320i,2020,Petrol,5,Sport,250,Fast and stylish,BMW.png
+Audi,A4,2021,Hybrid,5,Premium,280,Luxury sedan,Audi.png

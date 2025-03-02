@@ -29,6 +29,8 @@ public class CarPage {
     public static String price = PropertiesLoader.loadProperty("valid.price");
     public static String about = PropertiesLoader.loadProperty("valid.about");
     public static String photos = PropertiesLoader.loadProperty("valid.photos");
+    public static String photosFolder = PropertiesLoader.loadProperty("photos.folder");
+
 
 
     public void inputAutoDetailsFromProperties() {
@@ -101,13 +103,26 @@ public class CarPage {
     }
 
     public void inputMultipleAutoDetailsFromCsv(String filePath) {
+        // Загружаем данные из CSV-файла
         List<String[]> carData = PropertiesLoader.loadCsv(filePath);
+        // Получаем корневую директорию проекта
+        String projectDir = System.getProperty("user.dir");
+        // Формируем путь к папке с изображениями, используя свойство photos.folder из selenide.properties
+        String imagesBasePath = projectDir + File.separator + photosFolder + File.separator;
 
-        if (carData.size() > 1) { // Пропускаем заголовок
+        if (carData.size() > 1) { // Пропускаем заголовок CSV
             for (int i = 1; i < carData.size(); i++) {
                 String[] car = carData.get(i);
                 String manufacture = car[0];
                 String model = car[1];
+                String year = car[2];
+                String fuel = car[3];
+                String seats = car[4];
+                String classCar = car[5];
+                String price = car[6];
+                String about = car[7];
+                // Получаем имя файла фотографии (например, "Toyota.png")
+                String photoFileName = car[8];
 
                 System.out.println("Добавление автомобиля: " + manufacture + " " + model);
 
@@ -117,37 +132,34 @@ public class CarPage {
 
                 $("#make").setValue(manufacture);
                 $("#model").setValue(model);
-                $("#year").setValue(car[2]);
-                $("#fuel").selectOption(car[3]);
-                $("#seats").setValue(car[4]);
-                $("#class").setValue(car[5]);
+                $("#year").setValue(year);
+                $("#fuel").selectOption(fuel);
+                $("#seats").setValue(seats);
+                $("#class").setValue(classCar);
                 $("#serialNumber").setValue(String.valueOf(System.currentTimeMillis()));
-                $("#price").setValue(car[6]);
-                $("#about").setValue(car[7]);
+                $("#price").setValue(price);
+                $("#about").setValue(about);
 
                 $("#about").scrollIntoView(true);
 
-                String photoPath = PropertiesLoader.loadProperty("valid.photos");
-                File photoFile = new File(photoPath);
-
+                // Формируем полный путь к фотографии, используя свойство photos.folder
+                String fullPhotoPath = imagesBasePath + photoFileName;
+                File photoFile = new File(fullPhotoPath);
                 if (!photoFile.exists()) {
                     throw new RuntimeException("Фото не найдено: " + photoFile.getAbsolutePath());
                 }
 
                 $("#photos").uploadFile(photoFile);
 
-                // Прокручиваем к кнопке Submit и кликаем
                 clickOnSubmitButtonWithScroll();
 
-                // Ждем сообщение об успешном добавлении машины
+                // Ждем сообщение об успешном добавлении автомобиля
                 waitForSuccessMessage(manufacture + " " + model + " added successful");
 
-                // Обновляем страницу перед добавлением следующей машины
-                if (i < carData.size() - 1) { // Не обновлять после последней машины
+                // Обновляем страницу перед добавлением следующей машины (если это не последняя строка CSV)
+                if (i < carData.size() - 1) {
                     System.out.println("Обновляем страницу...");
                     Selenide.refresh();
-
-                    // Ждем загрузки страницы и кликаем "Let the Car Work"
                     $x("(//a[@class='navigation-link'])[2]").shouldBe(Condition.visible, Duration.ofSeconds(10)).click();
                 }
             }
