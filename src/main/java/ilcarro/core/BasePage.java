@@ -1,5 +1,7 @@
 package ilcarro.core;
 
+import com.codeborne.selenide.WebDriverRunner;
+
 import static com.codeborne.selenide.Selenide.closeWebDriver;
 import static com.codeborne.selenide.Selenide.open;
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
@@ -12,6 +14,6 @@ public class BasePage {
     }
 
     public void quitBrowser() {
-        closeWebDriver();
+        WebDriverRunner.getWebDriver().quit();
     }
 }
