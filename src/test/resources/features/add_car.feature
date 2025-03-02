@@ -14,7 +14,7 @@ Feature: Adding a car
     And The user presses the Let the Car Work button
    #When The user enters the car data
    #   | location | manufacture | model   | year | fuel   | seats | classCar | price | about        | photo                           |
-    #  | Haifa | Toyota | Corolla | 2000 | Diesel | 4 | Sedan | 1000 | The best car | "C:\AIT_TR_QA\5_ilcarro_Cucumber_Selenide\Los.png" |
+   #   | Haifa | Toyota | Corolla | 2000 | Diesel | 4 | Sedan | 1000 | The best car | C:/AIT_TR_QA/5_ilcarro_Cucumber_Selenide_new/Los.png |
     When The user enters the data of the ISproperties car
     And The user presses the Submit button
     Then The user checks the message "Toyota Corolla added successful"
